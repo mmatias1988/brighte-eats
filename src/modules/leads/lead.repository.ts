@@ -93,7 +93,7 @@ export class LeadRepository {
       orderDirection = 'desc',
     } = options;
 
-    return this.prisma.lead.findMany({
+    const result = await this.prisma.lead.findMany({
       include: {
         services: {
           select: SERVICE_SELECT,
@@ -104,10 +104,12 @@ export class LeadRepository {
       },
       orderBy: {
         [orderBy]: orderDirection,
-      },
-      take: limit,
+      } as Record<string, 'asc' | 'desc'>,
+      ...(limit !== undefined && { take: limit }),
       skip: offset,
     });
+
+    return result as LeadWithServices[];
   }
 
   /**
