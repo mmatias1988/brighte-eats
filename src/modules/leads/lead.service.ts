@@ -1,124 +1,80 @@
+import { PrismaClient } from '@prisma/client';
+import type { CreateLeadInput, LeadWithServices, GetLeadsOptions } from './types.js';
+import { LeadValidator } from './lead.validator.js';
+import { LeadRepository } from './lead.repository.js';
+import { LeadNotFoundError, DuplicateEmailError } from './errors.js';
 import { prisma } from '../../lib/prisma.js';
-import { ServiceType } from '@prisma/client';
 
-export interface CreateLeadInput {
-  name: string;
-  email: string;
-  mobile: string;
-  postcode: string;
-  services: ServiceType[];
-}
-
-export interface LeadWithServices {
-  id: string;
-  name: string;
-  email: string;
-  mobile: string;
-  postcode: string;
-  createdAt: Date;
-  updatedAt: Date;
-  services: {
-    id: string;
-    serviceType: ServiceType;
-    createdAt: Date;
-  }[];
-}
-
+/**
+ * Business logic layer for Lead operations
+ */
 export class LeadService {
+  private readonly repository: LeadRepository;
+
+  constructor(client: PrismaClient = prisma) {
+    this.repository = new LeadRepository(client);
+  }
+
   /**
    * Creates a new lead with associated services
+   * @throws {LeadValidationError} When input validation fails
+   * @throws {DuplicateEmailError} When email already exists
    */
   async createLead(input: CreateLeadInput): Promise<LeadWithServices> {
-    const { name, email, mobile, postcode, services } = input;
+    // Validate input
+    const validatedInput = LeadValidator.validateCreateInput(input);
 
-    // Services array should not be empty
-    if (!services || services.length === 0) {
-      throw new Error('At least one service must be selected');
+    // Check for duplicate email
+    const existingLead = await this.repository.findByEmail(validatedInput.email);
+    if (existingLead) {
+      throw new DuplicateEmailError(validatedInput.email);
     }
 
-    // Services should be unique
-    const uniqueServices = Array.from(new Set(services));
-    if (uniqueServices.length !== services.length) {
-      throw new Error('Duplicate services are not allowed');
-    }
-
-    // Create lead with services
-    const lead = await prisma.lead.create({
-      data: {
-        name,
-        email,
-        mobile,
-        postcode,
-        services: {
-          create: uniqueServices.map((serviceType) => ({
-            serviceType,
-          })),
-        },
-      },
-      include: {
-        services: {
-          select: {
-            id: true,
-            serviceType: true,
-            createdAt: true,
-          },
-        },
-      },
+    // Create lead
+    return this.repository.create({
+      name: validatedInput.name,
+      email: validatedInput.email,
+      mobile: validatedInput.mobile,
+      postcode: validatedInput.postcode,
+      services: validatedInput.services,
     });
-
-    return lead;
   }
 
   /**
    * Retrieves all leads with their services
    */
-  async getLeads(): Promise<LeadWithServices[]> {
-    const leads = await prisma.lead.findMany({
-      include: {
-        services: {
-          select: {
-            id: true,
-            serviceType: true,
-            createdAt: true,
-          },
-          orderBy: {
-            createdAt: 'asc',
-          },
-        },
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-    });
-
-    return leads;
+  async getLeads(options?: GetLeadsOptions): Promise<LeadWithServices[]> {
+    return this.repository.findAll(options);
   }
 
   /**
    * Retrieves a single lead by ID with their services
+   * @throws {LeadNotFoundError} When lead is not found
+   * Should exist but not found
    */
-  async getLeadById(id: string): Promise<LeadWithServices | null> {
-    const lead = await prisma.lead.findUnique({
-      where: {
-        id,
-      },
-      include: {
-        services: {
-          select: {
-            id: true,
-            serviceType: true,
-            createdAt: true,
-          },
-          orderBy: {
-            createdAt: 'asc',
-          },
-        },
-      },
-    });
-
+  async getLeadById(id: string): Promise<LeadWithServices> {
+    const lead = await this.repository.findById(id);
+    if (!lead) {
+      throw new LeadNotFoundError(id);
+    }
     return lead;
+  }
+
+  /**
+   * Retrieves a single lead by ID with their services (returns null if not found)
+   * Might not exist 
+   */
+  async findLeadById(id: string): Promise<LeadWithServices | null> {
+    return this.repository.findById(id);
+  }
+
+  /**
+   * Gets total count of leads
+   */
+  async getLeadCount(): Promise<number> {
+    return this.repository.count();
   }
 }
 
+// Export singleton instance
 export const leadService = new LeadService();
-
