@@ -70,3 +70,4 @@ temp/
 
 
 /src/generated/prisma
+/src/test-lead-service.ts
