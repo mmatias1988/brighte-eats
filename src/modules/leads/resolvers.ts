@@ -1,6 +1,6 @@
 import { GraphQLError } from 'graphql';
 import { ServiceType } from '@prisma/client';
-import { leadService } from './lead.service.js';
+import { leadService } from './service.js';
 import { LeadValidationError, LeadNotFoundError, DuplicateEmailError } from './errors.js';
 import type { CreateLeadInput } from './types.js';
 

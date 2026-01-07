@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, jest } from '@jest/globals';
-import { LeadRepository } from '../lead.repository.js';
+import { LeadRepository } from '../repository.js';
 import { ServiceType } from '@prisma/client';
 import type { LeadWithServices } from '../types.js';
 import type { PrismaClient } from '@prisma/client';

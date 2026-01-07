@@ -9,7 +9,7 @@ export { leadTypeDefs } from './typeDefs.js';
 export { leadResolvers } from './resolvers.js';
 
 // Service
-export { LeadService, leadService } from './lead.service.js';
+export { LeadService, leadService } from './service.js';
 
 // Types
 export type {

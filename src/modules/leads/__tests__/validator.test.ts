@@ -1,5 +1,5 @@
 import { describe, it, expect } from '@jest/globals';
-import { LeadValidator } from '../lead.validator.js';
+import { LeadValidator } from '../validator.js';
 import { LeadValidationError } from '../errors.js';
 import { ServiceType } from '@prisma/client';
 

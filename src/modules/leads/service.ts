@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import type { CreateLeadInput, LeadWithServices, GetLeadsOptions } from './types.js';
-import { LeadValidator } from './lead.validator.js';
-import { LeadRepository } from './lead.repository.js';
+import { LeadValidator } from './validator.js';
+import { LeadRepository } from './repository.js';
 import { LeadNotFoundError, DuplicateEmailError } from './errors.js';
 import { prisma } from '../../lib/prisma.js';
 

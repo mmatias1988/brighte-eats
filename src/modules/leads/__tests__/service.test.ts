@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, jest } from '@jest/globals';
-import { LeadService } from '../lead.service.js';
+import { LeadService } from '../service.js';
 import {
   LeadValidationError,
   LeadNotFoundError,
@@ -7,7 +7,7 @@ import {
 } from '../errors.js';
 import { ServiceType } from '@prisma/client';
 import type { CreateLeadInput, LeadWithServices } from '../types.js';
-import type { LeadRepository } from '../lead.repository.js';
+import type { LeadRepository } from '../repository.js';
 
 describe('LeadService', () => {
   let leadService: LeadService;

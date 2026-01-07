@@ -8,7 +8,7 @@ import {
 } from '../errors.js';
 import type { LeadWithServices } from '../types.js';
 import { leadResolvers } from '../resolvers.js';
-import * as leadServiceModule from '../lead.service.js';
+import * as leadServiceModule from '../service.js';
 
 // Create spies for service methods
 const mockGetLeads = jest.spyOn(leadServiceModule.leadService, 'getLeads');
