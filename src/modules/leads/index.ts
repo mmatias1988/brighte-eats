@@ -5,6 +5,9 @@
 // GraphQL Schema
 export { leadTypeDefs } from './typeDefs.js';
 
+// GraphQL Resolvers
+export { leadResolvers } from './resolvers.js';
+
 // Service
 export { LeadService, leadService } from './lead.service.js';
 
