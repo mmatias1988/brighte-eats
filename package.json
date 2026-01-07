@@ -2,10 +2,11 @@
   "name": "brighte-eats",
   "version": "1.0.0",
   "description": "This project provides a backend system for collecting and viewing expressions of interest for a new product called **Brighte Eats**.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only --esm src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
@@ -16,7 +17,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/mmatias1988/brighte-eats/issues"
   },
