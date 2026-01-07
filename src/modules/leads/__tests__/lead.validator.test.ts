@@ -284,6 +284,42 @@ describe('LeadValidator', () => {
           ServiceType.PAYMENT,
         ]);
       });
+
+      it('should throw error for invalid service type', () => {
+        const input = {
+          name: 'John Doe',
+          email: 'test@example.com',
+          mobile: '0412345678',
+          postcode: '2000',
+          // Cast to any to bypass TypeScript enum validation for testing
+          services: ['INVALID_SERVICE' as any as ServiceType],
+        };
+
+        expect(() => LeadValidator.validateCreateInput(input)).toThrow(
+          LeadValidationError
+        );
+        expect(() => LeadValidator.validateCreateInput(input)).toThrow(
+          'Invalid service type: INVALID_SERVICE'
+        );
+      });
+
+      it('should throw error for mixed valid and invalid service types', () => {
+        const input = {
+          name: 'John Doe',
+          email: 'test@example.com',
+          mobile: '0412345678',
+          postcode: '2000',
+          // Cast to any to bypass TypeScript enum validation for testing
+          services: [
+            ServiceType.DELIVERY,
+            'INVALID_SERVICE' as any as ServiceType,
+          ],
+        };
+
+        expect(() => LeadValidator.validateCreateInput(input)).toThrow(
+          'Invalid service type: INVALID_SERVICE'
+        );
+      });
     });
   });
 });
