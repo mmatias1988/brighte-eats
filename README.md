@@ -11,6 +11,14 @@ Customers can register their interest by providing basic contact details and sel
 
 The system exposes a **GraphQL API** for registering leads and querying them via a dashboard. An optional frontend is included to demonstrate end-to-end usage.
 
+### Test Coverage
+
+The project maintains **100% test coverage** across all modules, ensuring reliability and maintainability.
+
+![Test Coverage](docs/images/coverage-report.png)
+
+For detailed testing information, see the [Testing Guide](docs/TESTING.md).
+
 ---
 
 ## Requirements Summary
@@ -49,3 +57,40 @@ The system fulfills the following requirements:
 ### Tooling
 - Docker & Docker Compose
 - npm
+
+---
+
+## Getting Started
+
+📖 **For detailed setup instructions, see [SETUP.md](docs/SETUP.md)**  
+🧪 **For testing information, see [TESTING.md](docs/TESTING.md)**
+
+### Quick Start
+
+1. **Prerequisites**: Install Node.js, Docker Desktop, and (for Windows) WSL
+2. **Database**: Start PostgreSQL with `docker compose up -d`
+3. **Backend**: Run `npm install` then `npm run dev`
+4. **Frontend**: Navigate to `frontend/` and run `npm install` then `npm run dev`
+
+### Service URLs
+
+- GraphQL API: http://localhost:4000
+- Frontend: http://localhost:3000
+- Adminer (DB UI): http://localhost:8080
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run tests in watch mode
+npm run test:watch
+```
+
+For complete setup instructions, troubleshooting, and more details, please refer to:
+- [Setup Guide](docs/SETUP.md)
+- [Testing Guide](docs/TESTING.md)
