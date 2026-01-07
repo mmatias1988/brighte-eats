@@ -2,6 +2,9 @@
  * Public API exports for the leads module
  */
 
+// GraphQL Schema
+export { leadTypeDefs } from './typeDefs.js';
+
 // Service
 export { LeadService, leadService } from './lead.service.js';
 
