@@ -11,14 +11,6 @@ Customers can register their interest by providing basic contact details and sel
 
 The system exposes a **GraphQL API** for registering leads and querying them via a dashboard. An optional frontend is included to demonstrate end-to-end usage.
 
-### Test Coverage
-
-The project maintains **100% test coverage** across all modules, ensuring reliability and maintainability.
-
-![Test Coverage](docs/images/coverage-report.png)
-
-For detailed testing information, see the [Testing Guide](docs/TESTING.md).
-
 ---
 
 ## Requirements Summary
@@ -90,6 +82,16 @@ npm run test:coverage
 # Run tests in watch mode
 npm run test:watch
 ```
+
+### Test Coverage
+
+The project maintains **100% test coverage** across all modules, ensuring reliability and maintainability.
+
+![Test Coverage](docs/images/coverage-report.png)
+
+For detailed testing information, see the [Testing Guide](docs/TESTING.md).
+
+---
 
 For complete setup instructions, troubleshooting, and more details, please refer to:
 - [Setup Guide](docs/SETUP.md)
