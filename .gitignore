@@ -68,3 +68,5 @@ out/
 tmp/
 temp/
 
+
+/src/generated/prisma
