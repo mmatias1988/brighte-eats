@@ -45,6 +45,7 @@ The system fulfills the following requirements:
 ### Frontend (Optional)
 - React
 - TypeScript
+- Vite
 
 ### Tooling
 - Docker & Docker Compose
