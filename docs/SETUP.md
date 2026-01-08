@@ -5,11 +5,12 @@ This guide will walk you through setting up the entire tech stack for the Bright
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
-2. [Backend Setup](#backend-setup)
-3. [Database Setup](#database-setup)
-4. [Frontend Setup](#frontend-setup)
-5. [Running the Application](#running-the-application)
-6. [Service URLs](#service-urls)
+2. [Clone the Repository](#clone-the-repository)
+3. [Backend Setup](#backend-setup)
+4. [Database Setup](#database-setup)
+5. [Frontend Setup](#frontend-setup)
+6. [Running the Application](#running-the-application)
+7. [Service URLs](#service-urls)
 
 ---
 
@@ -43,59 +44,42 @@ If you're on Windows, enable WSL for better Docker performance:
 ```powershell
 # Run PowerShell as Administrator
 wsl --install
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
 After running these commands, restart your computer.
 
 ---
 
+## Clone the Repository
+
+Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/mmatias1988/brighte-eats.git
+cd brighte-eats
+```
+
+---
+
 ## Backend Setup
 
-### 1. Initialize Project (if starting fresh)
+### 1. Install Dependencies
+
+From the root directory, install all backend dependencies:
 
 ```bash
-npm init -y
+npm install
 ```
 
-### 2. Install TypeScript and Development Dependencies
+This will automatically install all required packages including:
+- TypeScript and development tools (`typescript`, `ts-node-dev`, `@types/node`)
+- Apollo Server and GraphQL (`@apollo/server`, `graphql`)
+- Prisma ORM (`prisma`, `@prisma/client`)
+- PostgreSQL adapter (`@prisma/adapter-pg`, `pg`)
+- Testing dependencies (`jest`, `@types/jest`, `@jest/globals`, `ts-jest`, `cross-env`)
+- Additional development tools (`dotenv`, `tsx`)
 
-```bash
-npm install typescript ts-node-dev @types/node --save-dev
-npx tsc --init
-```
-
-### 3. Install Apollo Server and GraphQL
-
-```bash
-npm install @apollo/server graphql
-```
-
-### 4. Install Prisma ORM
-
-```bash
-npm install prisma @prisma/client
-```
-
-### 5. Install PostgreSQL Adapter
-
-```bash
-npm install @prisma/adapter-pg pg
-```
-
-### 6. Install Testing Dependencies
-
-```bash
-npm install --save-dev jest @types/jest @jest/globals ts-jest
-npm install --save-dev cross-env
-```
-
-### 7. Install Additional Development Tools
-
-```bash
-npm install --save-dev dotenv tsx
-```
+All dependencies are defined in `package.json` and will be installed automatically.
 
 ---
 
@@ -183,12 +167,7 @@ This will install:
 - GraphQL
 - Vite
 
-### 3. Install Additional Frontend Dependencies (if needed)
-
-```bash
-npm install @apollo/client graphql
-npm install --save-dev @vitejs/plugin-react
-```
+**Note**: All frontend dependencies (including React, TypeScript, Apollo Client, GraphQL, and Vite) are already defined in `frontend/package.json` and will be installed automatically with `npm install`.
 
 ---
 
