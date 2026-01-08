@@ -56,7 +56,8 @@ The system fulfills the following requirements:
 ## Getting Started
 
 📖 **For detailed setup instructions, see [SETUP.md](docs/SETUP.md)**  
-🧪 **For testing information, see [TESTING.md](docs/TESTING.md)**
+🧪 **For testing information, see [TESTING.md](docs/TESTING.md)**  
+🏗️ **For architecture details, see [ARCHITECTURE.md](docs/ARCHITECTURE.md)**
 
 ### Quick Start
 
@@ -97,3 +98,4 @@ For detailed testing information, see the [Testing Guide](docs/TESTING.md).
 For complete setup instructions, troubleshooting, and more details, please refer to:
 - [Setup Guide](docs/SETUP.md)
 - [Testing Guide](docs/TESTING.md)
+- [Architecture Documentation](docs/ARCHITECTURE.md)
