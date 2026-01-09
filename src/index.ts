@@ -35,8 +35,9 @@ const server = new ApolloServer({
 });
 
 async function startServer() {
+  const port = process.env.PORT || 4000;
   const { url } = await startStandaloneServer(server, {
-    listen: { port: 4000 },
+    listen: { port: Number(port) },
   });
   console.log(`GraphQL Playground available at ${url}`);
 }
