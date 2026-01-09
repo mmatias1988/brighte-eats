@@ -57,7 +57,8 @@ The system fulfills the following requirements:
 
 📖 **For detailed setup instructions, see [SETUP.md](docs/SETUP.md)**  
 🧪 **For testing information, see [TESTING.md](docs/TESTING.md)**  
-🏗️ **For architecture details, see [ARCHITECTURE.md](docs/ARCHITECTURE.md)**
+🏗️ **For architecture details, see [ARCHITECTURE.md](docs/ARCHITECTURE.md)**  
+🔌 **For GraphQL API documentation, see [GRAPHQL_API.md](docs/GRAPHQL_API.md)**
 
 ### Quick Start
 
@@ -68,9 +69,14 @@ The system fulfills the following requirements:
 
 ### Service URLs
 
+**Local Development:**
 - GraphQL API: http://localhost:4000
 - Frontend: http://localhost:3000
 - Adminer (DB UI): http://localhost:8080
+
+**Production:**
+- GraphQL API: https://brighte-eats-production.up.railway.app/
+- GraphQL Playground: https://brighte-eats-production.up.railway.app/ (opens in browser)
 
 ### Running Tests
 
@@ -99,3 +105,4 @@ For complete setup instructions, troubleshooting, and more details, please refer
 - [Setup Guide](docs/SETUP.md)
 - [Testing Guide](docs/TESTING.md)
 - [Architecture Documentation](docs/ARCHITECTURE.md)
+- [GraphQL API Documentation](docs/GRAPHQL_API.md)
