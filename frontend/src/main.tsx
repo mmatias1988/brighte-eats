@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 import { ApolloProvider } from '@apollo/client/react';
@@ -6,7 +6,7 @@ import App from './App.tsx';
 import './index.css';
 
 const httpLink = new HttpLink({
-  uri: '/graphql',
+  uri: import.meta.env.VITE_GRAPHQL_URL || '/graphql',
 });
 
 const client = new ApolloClient({
