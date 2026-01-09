@@ -72,9 +72,7 @@ describe('leadResolvers', () => {
 
         const result = await leadResolvers.Query.lead(
           null,
-          { id: 'lead-123' },
-          {} as any,
-          {} as any
+          { id: 'lead-123' }
         );
 
         expect(mockFindLeadById).toHaveBeenCalledWith('lead-123');
@@ -86,9 +84,7 @@ describe('leadResolvers', () => {
 
         const result = await leadResolvers.Query.lead(
           null,
-          { id: 'non-existent' },
-          {} as any,
-          {} as any
+          { id: 'non-existent' }
         );
 
         expect(result).toBeNull();
@@ -99,15 +95,13 @@ describe('leadResolvers', () => {
         mockFindLeadById.mockRejectedValue(error);
 
         await expect(
-          leadResolvers.Query.lead(null, { id: 'lead-123' }, {} as any, {} as any)
+          leadResolvers.Query.lead(null, { id: 'lead-123' })
         ).rejects.toThrow(GraphQLError);
 
         try {
           await leadResolvers.Query.lead(
             null,
-            { id: 'lead-123' },
-            {} as any,
-            {} as any
+            { id: 'lead-123' }
           );
         } catch (err: any) {
           expect(err.extensions?.code).toBe('NOT_FOUND');
@@ -119,15 +113,13 @@ describe('leadResolvers', () => {
         mockFindLeadById.mockRejectedValue(error);
 
         await expect(
-          leadResolvers.Query.lead(null, { id: 'lead-123' }, {} as any, {} as any)
+          leadResolvers.Query.lead(null, { id: 'lead-123' })
         ).rejects.toThrow(GraphQLError);
 
         try {
           await leadResolvers.Query.lead(
             null,
-            { id: 'lead-123' },
-            {} as any,
-            {} as any
+            { id: 'lead-123' }
           );
         } catch (err: any) {
           expect(err.extensions?.code).toBe('INTERNAL_SERVER_ERROR');
@@ -173,9 +165,7 @@ describe('leadResolvers', () => {
 
         const result = await leadResolvers.Mutation.register(
           null,
-          { input: mockInput },
-          {} as any,
-          {} as any
+          { input: mockInput }
         );
 
         expect(mockCreateLead).toHaveBeenCalledWith({
@@ -198,9 +188,7 @@ describe('leadResolvers', () => {
 
         await leadResolvers.Mutation.register(
           null,
-          { input: inputWithAllServices },
-          {} as any,
-          {} as any
+          { input: inputWithAllServices }
         );
 
         expect(mockCreateLead).toHaveBeenCalledWith({
@@ -223,18 +211,14 @@ describe('leadResolvers', () => {
         await expect(
           leadResolvers.Mutation.register(
             null,
-            { input: mockInput },
-            {} as any,
-            {} as any
+            { input: mockInput }
           )
         ).rejects.toThrow(GraphQLError);
 
         try {
           await leadResolvers.Mutation.register(
             null,
-            { input: mockInput },
-            {} as any,
-            {} as any
+            { input: mockInput }
           );
         } catch (err: any) {
           expect(err.extensions?.code).toBe('BAD_USER_INPUT');
@@ -249,18 +233,14 @@ describe('leadResolvers', () => {
         await expect(
           leadResolvers.Mutation.register(
             null,
-            { input: mockInput },
-            {} as any,
-            {} as any
+            { input: mockInput }
           )
         ).rejects.toThrow(GraphQLError);
 
         try {
           await leadResolvers.Mutation.register(
             null,
-            { input: mockInput },
-            {} as any,
-            {} as any
+            { input: mockInput }
           );
         } catch (err: any) {
           expect(err.extensions?.code).toBe('BAD_USER_INPUT');
@@ -274,18 +254,14 @@ describe('leadResolvers', () => {
         await expect(
           leadResolvers.Mutation.register(
             null,
-            { input: mockInput },
-            {} as any,
-            {} as any
+            { input: mockInput }
           )
         ).rejects.toThrow(GraphQLError);
 
         try {
           await leadResolvers.Mutation.register(
             null,
-            { input: mockInput },
-            {} as any,
-            {} as any
+            { input: mockInput }
           );
         } catch (err: any) {
           expect(err.extensions?.code).toBe('INTERNAL_SERVER_ERROR');
@@ -303,18 +279,14 @@ describe('leadResolvers', () => {
         await expect(
           leadResolvers.Mutation.register(
             null,
-            { input: invalidInput },
-            {} as any,
-            {} as any
+            { input: invalidInput }
           )
         ).rejects.toThrow(GraphQLError);
 
         try {
           await leadResolvers.Mutation.register(
             null,
-            { input: invalidInput },
-            {} as any,
-            {} as any
+            { input: invalidInput }
           );
         } catch (err: any) {
           // The original GraphQLError from mapServiceType gets caught
