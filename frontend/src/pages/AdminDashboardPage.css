@@ -1,12 +1,13 @@
 .admin-dashboard {
   min-height: 100vh;
-  background: #f5f7fa;
+  background: linear-gradient(135deg, #FFFBF8 0%, #FFE8E0 30%, #FFF4E6 100%);
 }
 
 .admin-header {
-  background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
+  box-shadow: 0 4px 12px rgba(255, 113, 91, 0.3);
+  padding: 2rem 2rem;
+  color: white;
 }
 
 .admin-header-content {
@@ -19,30 +20,36 @@
 
 .admin-header h1 {
   margin: 0 0 0.25rem 0;
-  color: #333;
-  font-size: 1.75rem;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .admin-header p {
   margin: 0;
-  color: #666;
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .logout-button {
-  padding: 0.5rem 1.5rem;
-  background-color: #dc3545;
+  padding: 0.625rem 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
-  border: none;
-  border-radius: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
 }
 
 .logout-button:hover {
-  background-color: #c82333;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
 }
 
 .admin-main {
@@ -53,9 +60,10 @@
 
 .admin-card {
   background: white;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 24px rgba(255, 113, 91, 0.15);
+  border: 1px solid var(--border-light);
 }
 
 .admin-stats {
@@ -63,58 +71,79 @@
   gap: 2rem;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid var(--border-light);
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #FFF8F5 0%, #FFFBF0 100%);
+  border-radius: 12px;
+  border: 2px solid var(--golden);
+  min-width: 150px;
 }
 
 .stat-label {
   font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0.25rem;
+  color: var(--text-medium);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .stat-value {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--coral) 0%, var(--golden) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .leads-section h2 {
-  margin: 0 0 1rem 0;
-  color: #333;
+  margin: 0 0 1.5rem 0;
+  color: var(--coral);
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .loading {
   text-align: center;
-  padding: 2rem;
-  color: #666;
+  padding: 3rem;
+  color: var(--text-medium);
+  font-size: 1.1rem;
 }
 
 .error {
-  padding: 1rem;
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 4px;
-  color: #721c24;
-  margin-bottom: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+  border-left: 4px solid var(--coral);
+  border-radius: 8px;
+  color: var(--coral-dark);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 .refresh-button {
-  margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
-  background-color: #4a90e2;
-  color: white;
+  margin-top: 1.5rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, var(--golden) 0%, var(--golden-dark) 100%);
+  color: var(--text-dark);
   border: none;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(249, 203, 64, 0.3);
 }
 
 .refresh-button:hover {
-  background-color: #357abd;
+  background: linear-gradient(135deg, var(--golden-dark) 0%, var(--golden) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(249, 203, 64, 0.4);
 }

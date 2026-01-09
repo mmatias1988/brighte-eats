@@ -1,65 +1,85 @@
 .register-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+  overflow-x: hidden;
 }
 
 .register-header {
   text-align: center;
-  padding: 2rem 1rem;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 1rem 1rem;
+  background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
+  box-shadow: 0 4px 12px rgba(255, 113, 91, 0.3);
+  color: white;
+  position: relative;
+  z-index: 2;
 }
 
 .register-header h1 {
   margin: 0 0 0.5rem 0;
-  color: #333;
+  color: white;
   font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .register-header p {
   margin: 0;
-  color: #666;
-  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.2rem;
+  font-weight: 300;
 }
 
 .register-main {
-  max-width: 600px;
-  margin: 2rem auto;
+  max-width: 650px;
+  margin: 3rem auto 2rem;
   padding: 0 1rem;
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 200px);
 }
 
 .register-card {
   background: white;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 24px rgba(255, 113, 91, 0.15);
+  border: 1px solid var(--border-light);
+  position: relative;
+  z-index: 2;
 }
 
 .register-card h2 {
   margin: 0 0 0.5rem 0;
-  color: #333;
+  color: var(--coral);
+  font-size: 1.75rem;
+  font-weight: 600;
 }
 
 .register-description {
-  margin: 0 0 1.5rem 0;
-  color: #666;
-  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  color: var(--text-medium);
+  line-height: 1.7;
+  font-size: 1rem;
 }
 
 .success-message {
-  padding: 1rem;
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  border-radius: 4px;
-  color: #155724;
-  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border-left: 4px solid #4CAF50;
+  border-radius: 8px;
+  color: #2E7D32;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
 }
 
 .error-message {
-  padding: 1rem;
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 4px;
-  color: #721c24;
-  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+  border-left: 4px solid var(--coral);
+  border-radius: 8px;
+  color: var(--coral-dark);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(255, 113, 91, 0.15);
 }

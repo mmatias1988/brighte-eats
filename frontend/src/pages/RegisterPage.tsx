@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client/react';
 import { REGISTER_LEAD } from '../graphql/queries';
 import LeadForm from '../components/LeadForm';
+import { ImageSlider } from '../components/ImageSlider';
 import './RegisterPage.css';
 
 export function RegisterPage() {
@@ -35,9 +36,9 @@ export function RegisterPage() {
 
   return (
     <div className="register-page">
+      <ImageSlider opacity={0.60} />
       <header className="register-header">
         <h1>Brighte Eats - Expressions of Interest</h1>
-        <p>Register your interest for Brighte Eats services</p>
       </header>
 
       <main className="register-main">

@@ -3,8 +3,24 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: #213547;
-  background-color: #ffffff;
+  /* Brighte Eats Color Palette */
+  --coral: #FF715B;
+  --coral-dark: #E85D4A;
+  --coral-light: #FF8A75;
+  --golden: #F9CB40;
+  --golden-dark: #E6B82E;
+  --golden-light: #FFD966;
+  --white: #FFFFFF;
+  --text-dark: #2C3E50;
+  --text-medium: #5A6C7D;
+  --text-light: #8B9AAB;
+  --bg-light: #FFFBF8;
+  --border-light: #F0E6E0;
+  --success: #4CAF50;
+  --error: #FF715B;
+
+  color: var(--text-dark);
+  background-color: var(--white);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,7 +38,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: var(--bg-light);
 }
 
 #app {
