@@ -3,12 +3,19 @@ import type { Lead } from '../types.ts';
 
 interface LeadListProps {
   leads: Lead[];
+  onLeadClick?: (leadId: string) => void;
 }
 
-function LeadList({ leads }: LeadListProps) {
+function LeadList({ leads, onLeadClick }: LeadListProps) {
   if (leads.length === 0) {
     return <p className="no-leads">No leads registered yet.</p>;
   }
+
+  const handleRowClick = (leadId: string) => {
+    if (onLeadClick) {
+      onLeadClick(leadId);
+    }
+  };
 
   return (
     <div className="lead-list">
@@ -25,7 +32,11 @@ function LeadList({ leads }: LeadListProps) {
         </thead>
         <tbody>
           {leads.map((lead) => (
-            <tr key={lead.id}>
+            <tr
+              key={lead.id}
+              onClick={() => handleRowClick(lead.id)}
+              className={onLeadClick ? 'clickable-row' : ''}
+            >
               <td>{lead.name}</td>
               <td>{lead.email}</td>
               <td>{lead.mobile}</td>

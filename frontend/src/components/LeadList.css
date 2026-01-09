@@ -40,7 +40,15 @@
 
 .leads-table tbody tr:hover {
   background: linear-gradient(135deg, #FFF8F5 0%, #FFFBF0 100%);
-  transform: scale(1.01);
+}
+
+.leads-table tbody tr.clickable-row {
+  cursor: pointer;
+}
+
+.leads-table tbody tr.clickable-row:hover {
+  background: linear-gradient(135deg, #FFF8F5 0%, #FFFBF0 100%);
+  box-shadow: 0 2px 8px rgba(255, 113, 91, 0.15);
 }
 
 .leads-table tbody tr:last-child {
