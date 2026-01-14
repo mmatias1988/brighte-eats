@@ -53,6 +53,15 @@ The system fulfills the following requirements:
 
 ---
 
+## Deployment
+
+**Backend**
+- https://brighte-eats-production.up.railway.app/
+
+**Frontend**
+- User: https://brighte-eats-client.up.railway.app/
+- Admin: https://brighte-eats-client.up.railway.app/admin
+
 ## Getting Started
 
 📖 **For detailed setup instructions, see [SETUP.md](docs/SETUP.md)**  
